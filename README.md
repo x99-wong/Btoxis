@@ -1,17 +1,37 @@
-# WhatsApp Bot (Btoxis)
+# WhatsApp Bot — Btoxis
+
+![XXXTentacion Banner](https://upload.wikimedia.org/wikipedia/commons/9/9d/XXXTentacion_at_Rolling_Loud.jpg)
+
+> **"People always leave. Don't get too attached."**  
+> — XXXTentacion
+
+---
+
+### Made by: **Xxxwongtocion**
+- From: **Tanzania**
+- Passionate **bot developer**, focused on WhatsApp automations
+- Open to collaborations & learning — *hit me up!*
+
+---
+
+## About This Bot
 
 This is a simple WhatsApp bot built using **Python**, **Flask**, and **Twilio API**.  
-It responds to basic messages like "hi", "bye", and "help" through WhatsApp.
+It automatically replies to messages like `hi`, `bye`, and `help`.
+
+---
 
 ## Features
-- Auto-response to specific WhatsApp messages
-- Flask-based webhook to receive and reply to messages
-- Easily deployable on Heroku or Koyeb
-- Uses environment variables for sensitive credentials
+- Auto-responds to WhatsApp messages
+- Built with Flask and Twilio
+- Deployable to Heroku / Koyeb
+- Uses environment variables for security
 
-## Setup Instructions
+---
 
-### 1. Clone the repository
+## How to Use
+
+### 1. Clone this repo
 ```bash
 git clone https://github.com/x99-wong/Btoxis.git
 cd Btoxis
