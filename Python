@@ -1,0 +1,28 @@
+from flask import Flask, request
+from twilio.rest import Client
+
+app = Flask(__name__)
+
+# ENV variables missing intentionally
+client = Client()  # Missing SID and Token
+
+@app.route("/whatsapp", methods=["POST"])
+def whatsapp_reply():
+    incoming_msg = request.values.get('Body', '')
+    from_number = request.values.get('From', None)
+    response_msg = "I don't understand."
+
+    # Bug: Logic conflict
+    if incoming_msg == "hi" or "hello":
+        response_msg = "Hey there!"
+    elif incoming_msg == "bye":
+        response_msg == "Goodbye!"
+
+    # Bug: client might be None
+    client.messages.create(
+        body=response_msg,
+        from_="whatsapp:+14155238886",
+        to=from_number
+    )
+
+    return "Done"
