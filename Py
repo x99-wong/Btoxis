@@ -1,0 +1,44 @@
+import os
+from flask import Flask, request
+from twilio.rest import Client
+
+app = Flask(__name__)
+
+# Safely load Twilio credentials from environment variables
+ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
+AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
+FROM_NUMBER = os.environ.get("TWILIO_PHONE_NUMBER")  # e.g. "whatsapp:+14155238886"
+
+client = Client(ACCOUNT_SID, AUTH_TOKEN)
+
+@app.route("/whatsapp", methods=["POST"])
+def whatsapp_reply():
+    incoming_msg = request.values.get('Body', '').strip().lower()
+    from_number = request.values.get('From')
+
+    if not from_number:
+        return "Invalid sender", 400
+
+    # Simple logic to handle replies
+    if incoming_msg in ["hi", "hello"]:
+        response_msg = "Hey there! How can I assist you?"
+    elif incoming_msg == "bye":
+        response_msg = "Goodbye! Come back anytime."
+    elif "help" in incoming_msg:
+        response_msg = "Here are some commands you can try: hi, bye, help"
+    else:
+        response_msg = "Sorry, I didn't understand that. Try saying 'hi', 'bye' or 'help'."
+
+    try:
+        client.messages.create(
+            body=response_msg,
+            from_=FROM_NUMBER,
+            to=from_number
+        )
+        return "Message sent", 200
+    except Exception as e:
+        print(f"Error sending message: {e}")
+        return "Failed to send", 500
+
+if __name__ == "__main__":
+    app.run(debug=True)
