@@ -24,6 +24,9 @@ It automatically replies to messages like `hi`, `bye`, and `help`.
 ## Features
 - Auto-responds to WhatsApp messages
 - Built with Flask and Twilio
+- ## Deploy on Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/x99-wong/Btoxis)
 - Deployable to Heroku / Koyeb
 - Uses environment variables for security
 
