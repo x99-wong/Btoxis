@@ -20,6 +20,22 @@ This is a simple WhatsApp bot built using **Python**, **Flask**, and **Twilio AP
 It automatically replies to messages like `hi`, `bye`, and `help`.
 
 ---
+---
+
+## How to Join and Test the WhatsApp Bot
+
+You can easily test this bot in the Twilio Sandbox using WhatsApp:
+
+### Step 1: Save the Twilio Sandbox Number
+
+**+1 (415) 523-8886**
+
+### Step 2: Pair Your WhatsApp
+
+Send the following message to that number on WhatsApp:
+
+```text
+join swim-bus
 
 ## Features
 - Auto-responds to WhatsApp messages
