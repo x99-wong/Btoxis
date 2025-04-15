@@ -1,0 +1,25 @@
+{
+  "name": "whatsapp-bot",
+  "description": "A simple WhatsApp bot using Twilio and Flask",
+  "repository": "https://github.com/x99-wong/Btoxis",
+  "keywords": ["whatsapp", "bot", "twilio", "flask"],
+  "env": {
+    "TWILIO_ACCOUNT_SID": {
+      "description": "Your Twilio Account SID",
+      "required": true
+    },
+    "TWILIO_AUTH_TOKEN": {
+      "description": "Your Twilio Auth Token",
+      "required": true
+    },
+    "TWILIO_PHONE_NUMBER": {
+      "description": "Your Twilio WhatsApp number (e.g., whatsapp:+14155238886)",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
